@@ -8,6 +8,8 @@
 # Author: Jordan Haber (jordan.haber@duke.edu)
 # Date:   Fall 2024
 #--------------------------------------------------------------
+#Ask user for a date
+user_date = "7/3/2003" #input("Enter a date (M/D/YYYY)")
 
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
@@ -46,5 +48,10 @@ for lineString in line_list[17:]:
         date_dict[record_id] = obs_date
         location_dict[record_id] = (obs_lat, obs_lon)
 
-    #Print the location of sara
-    #print(f"Record {record_id} indicates Sara was seen at lat:{obs_lat},lon:{obs_lon} on {obs_date}")
+    #Initialize key list 
+    keys = []
+
+#Loop through items in date_dict
+for key,value in date_dict.items():
+    if value == user_date: 
+        keys.append(key)
