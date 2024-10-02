@@ -9,7 +9,7 @@
 # Date:   Fall 2024
 #--------------------------------------------------------------
 #Ask user for a date
-user_date = "7/3/2003" #input("Enter a date (M/D/YYYY)")
+user_date = input("Enter a date (M/D/YYYY)")
 
 #Create a variable pointing to the data file
 file_name = './data/raw/sara.txt'
@@ -55,3 +55,14 @@ for lineString in line_list[17:]:
 for key,value in date_dict.items():
     if value == user_date: 
         keys.append(key)
+
+#Report if no records were found 
+if len(keys) == 0:
+    print(f"No records were found on {user_date}")
+
+#Loop through keys and report locations
+for key in keys: 
+    location = location_dict[key]
+    lat=location[0]
+    lng=location[1]
+    print(f"On {user_date}, Sara the turtle was seen at {lat}d lat, {lng}d lng.")
